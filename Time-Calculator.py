@@ -27,6 +27,43 @@ def get_days_later(days):
         return f"({days} days later)"
     return ""
 
+"""
+	The purpose of the `add_time` function:
+        -> The second function we define as part of this is the `add_time(start_time, end_time, day=False)` function 
+        -> This takes a time, and another amount of time to add to it, and then returns their sum 
+        -> We also have a third argument which takes the day of the week, whose presence is optional 
+        -> There are multiple tests for this written in the Project Task Notes.pdf file, which we want to code into this 
+            function 
+
+	Problem solving to write this function:
+        -> The function has two arguments, both being times 
+        -> We want to take the second argument and add it to the first, then output the results of this 
+        -> So we need to first format the times (function inputs) in a way which will allow us to add them together 
+            -> There are multiple different forms which these inputs can take, depending on the tests which the project
+                'Task Notes.pdf' file lists 
+            -> We are taking them, splitting them into hours / minutes and period (AM and PM) 
+            -> Then converting them into integers, which the calculations are performed on 
+
+	We then add the first two arguments of the function together, to calculate the total minutes and hours for the 
+        sum: 
+            -> Since we are working in minutes and hours, if there are an excess of minutes then we will expand this to the 
+                number of hours which we have 
+            -> After we have added the two times together, we need to check if the result of this exceeds midday or not 
+            -> In which case, we are either operating in the PM / AM regime and this needs to be reflected in the function 
+                result 
+            -> After midday, we take away 12 from the result to print the number in PM format 
+            -> This is to pass the function tests, in the project requirements 
+
+	Then if the third (optional) `day` argument is inputted into the function:
+		-> This means we have a time on a certain weekday, we want to add some period of time to it and return this time - 
+            and the day of the week which it would land us on 
+		-> This is done by storing all of the days of the week in an array, and then calculating the day which we end up on 
+            by incrementing the day that the time of the first argument was given on
+		-> Then including the time which we end up on as part of the return result 
+		-> This is an optional argument, so the result won't include the day of the week if this third argument isn't given 
+
+	-> Then the result of this is returned as a string 
+"""
 
 def add_time(start_time, end_time, day=False):
     
@@ -42,7 +79,6 @@ def add_time(start_time, end_time, day=False):
         "saturday",
         "sunday",
     ]
-
 
     days_later = 0
     hours, mins = start_time.split(":")

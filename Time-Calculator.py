@@ -1,3 +1,24 @@
+"""
+    Outline of this document:
+        -> We are defining two functions, the first is called `get_days_later` and the second is called `add_time`
+        -> We want to insert a time into the function, and then tell it to add another quantity of time to this 
+        -> Then, to return the result of this temporal addition 
+        -> With a third optional argument being given as the day of the week
+
+    The get_days_later(days) function:
+        -> We can have multiple return statements in the same Python function definition 
+        -> The second function which this .py file defines has a third (optional) argument 
+            -> The first function which we define here is going to be nested into the second function 
+        -> The input to this first function is an integer number of days 
+        -> Either one day has been entered into the function, in which case we return that it is the next day in an 
+            f-string literal 
+        -> Or, more than one days have been entered
+        -> In which case, we are printing the number of days in an f-string literal 
+        -> There is a final case, where the number of days we have left is 0 - for which we want to return a blank 
+            string 
+        -> This is a helper function, to be nested into and used in the second function for the project 
+"""
+
 def get_days_later(days):
     """ Format the days later into string"""
     if days == 1:
